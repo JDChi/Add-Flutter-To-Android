@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.example.add_flutter_to_android.common.CacheId;
+
 import io.flutter.embedding.android.FlutterActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         bt_flutter_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(FlutterActivity.createDefaultIntent(MainActivity.this));
+                startActivity(FlutterActivity.withCachedEngine(CacheId.MY_ENGINE_ID).build(MainActivity.this));
+
+//                startActivity(FlutterActivity.createDefaultIntent(MainActivity.this));
             }
         });
     }
